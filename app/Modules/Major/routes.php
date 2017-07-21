@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +10,5 @@
 |
 */
 
-Route::get('/major/index', function () {
-    return view('Major::index');
-});
+    Route::get('/major/index', 'Major\Controllers\IndexController@index');
+    
