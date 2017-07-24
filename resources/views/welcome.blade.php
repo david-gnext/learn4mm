@@ -8,16 +8,6 @@
 
 @section('content')
     <div class="flex-center position-ref full-height w3-container main-content">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
 <!--            card major -->
         <div class="w3-row">
             <div class="w3-card-4 w3-col s3 w3-center">
@@ -30,8 +20,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-blue">
-                    <h5>Footer</h5>
+                <footer class="w3-container">
+                    <h5 class="w3-button w3-blue">Learn Now</h5>
                 </footer>
 
             </div>
@@ -45,8 +35,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-purple">
-                    <h5>Footer</h5>
+                <footer class="w3-container ">
+                    <h5 class="w3-button w3-purple">Learn Now</h5>
                 </footer>
 
             </div>
@@ -60,8 +50,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-blue-gray">
-                    <h5>Footer</h5>
+                <footer class="w3-container ">
+                    <h5 class="w3-button w3-blue-gray">Learn Now</h5>
                 </footer>
 
             </div>
@@ -77,8 +67,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-amber">
-                    <h5>Footer</h5>
+                <footer class="w3-container">
+                    <h5 class="w3-button w3-amber">Learn Now</h5>
                 </footer>
 
             </div>
@@ -92,8 +82,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-flat-emerald">
-                    <h5>Footer</h5>
+                <footer class="w3-container ">
+                    <h5 class="w3-button w3-flat-emerald">Learn Now</h5>
                 </footer>
 
             </div>
@@ -107,8 +97,8 @@
                     <p>You will learn 30 အလံုးေရ</p>
                 </div>
 
-                <footer class="w3-container w3-blue">
-                    <h5>Footer</h5>
+                <footer class="w3-container ">
+                    <h5 class="w3-button w3-blue">Learn Now</h5>
                 </footer>
 
             </div>

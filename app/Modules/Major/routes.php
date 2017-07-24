@@ -11,4 +11,3 @@
 */
 
     Route::get('/major/index', 'Major\Controllers\IndexController@index');
-    

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class LoginController extends Controller
 {
@@ -36,7 +39,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
     public function index() {
-        echo "Login";
+        if (Auth::check()) {
+            // Authentication passed...
+            return redirect()->intended('welcome');
+        } else {
+            return redirect("/signin");
+        }
+    }
+    //logging in
+    public function login(Request $request) {
+         if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
+             return redirect()->intended("welcome");
+         } else {
+              return redirect('/signin')->with("message","Incorrect Password or username");
+         }
+    }
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
     }
 }

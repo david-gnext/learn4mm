@@ -13,9 +13,14 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/login',"Auth\LoginController@index");
-
-Route::get('/new/create', function () {
-    return view("saw");
+})->middleware("auth");
+Route::group(['middleware'=>'web'],function(){
+    Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@index']);
+    Route::get('/signin',function() {
+        return view("User::signin");
+    });
+    Route::get('/logout','Auth\LoginController@logout');
+    Route::get('/new/create', function () {
+        return view("saw");
+    });
 });
