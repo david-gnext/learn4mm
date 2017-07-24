@@ -10,10 +10,12 @@
 
 @section('content')
 <div class="flex-center position-ref full-height w3-container main-content">
-    <form class="w3-container login w3-card-4" action="logging">
+    <img src="../img/logo.png" class="w3-display-bottomright w3-card-4" height="300"/>
+    <form class="w3-container login w3-card-4" action="logging" method="POST">
      <div class="w3-container w3-indigo">
         <h2>LogIn Form</h2>
     </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <label class="w3-text-indigo"><b>Email</b></label>
     <input class="w3-input w3-border" name="email" type="text">
 

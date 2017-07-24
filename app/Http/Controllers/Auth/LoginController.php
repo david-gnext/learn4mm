@@ -43,7 +43,11 @@ class LoginController extends Controller
     public function index() {
         if (Auth::check()) {
             // Authentication passed...
+            if(Auth::user()->role == 2) {
             return redirect()->intended('welcome');
+            }else {
+                echo "Admin page is still developing";
+            }
         } else {
             return redirect("/signin");
         }
@@ -51,7 +55,11 @@ class LoginController extends Controller
     //logging in
     public function login(Request $request) {
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
-             return redirect()->intended("welcome");
+             if(Auth::user()->role == 2) {
+                return redirect("/");
+             } else {
+                return redirect("/major/index");
+             }
          } else {
               return redirect('/signin')->with("message","Incorrect Password or username");
          }

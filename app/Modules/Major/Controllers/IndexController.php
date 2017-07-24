@@ -2,6 +2,8 @@
 namespace App\Modules\Major\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -15,8 +17,12 @@ class IndexController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    public function __construct() {
+        $this->middleware("auth")->except("logout");
+    }
     
     public function index() {
-        return view("Major::index");
+        $majors = DB::select('select * from major left join color on color.type = major.colortype');
+        return view('/welcome', ['majors' => $majors]);
     }
 }

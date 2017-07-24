@@ -10,4 +10,4 @@
 |
 */
 
-    Route::get('/major/index', 'Major\Controllers\IndexController@index');
+    Route::get('/major/index', 'Major\Controllers\IndexController@index')->middleware("auth.basic");

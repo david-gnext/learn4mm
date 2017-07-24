@@ -26,7 +26,7 @@
                         <a href="{{url('/logout')}}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green ">Logout</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="#">Register(မရေသးပါ)</a>
                     @endif
                     </div>
             @endif

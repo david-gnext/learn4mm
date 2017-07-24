@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware("auth");
 Route::group(['middleware'=>'web'],function(){
+    
+    Route::get('/',['uses' => '\App\Modules\Major\Controllers\IndexController@index']);
+
     Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@index']);
     Route::get('/signin',function() {
         return view("User::signin");

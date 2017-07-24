@@ -9,5 +9,5 @@
 @endsection
 
 @section('content')
-    <p>This is my body content.</p>
+    <p>Let create some major (Admin only)</p>
 @endsection
