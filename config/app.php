@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/learn4mm/public'),
+    'url' => env('APP_URL', 'https://learn4myanmar.000webhostapp.com/'),
 
     /*
     |--------------------------------------------------------------------------

@@ -9,9 +9,15 @@
 @endsection
 
 @section('content')
-<div class="flex-center position-ref full-height w3-container main-content">
-    <img src="../img/logo.png" class="w3-display-bottomright w3-card-4" height="300"/>
-    <form class="w3-container login w3-card-4" action="logging" method="POST">
+<div class="flex-center position-ref full-height w3-container main-content w3-row">
+    <div class="w3-panel w3-red w3-text-sand alert-msg">
+        <h3>
+            မန္ဘာအသစ္မွတ္ပံုတင္ၿခင္းမရေသးပါ။Data Serverရဲ႕လိုအပ္ခ်က္ေၾကာင့္ၿဖစ္သည္။<br>
+            သို႕ေသာ္Email ႏွင့္Password ေနရာတြင္demoႏွင့္demoရိုက္ၿပီး၀င္ေရာက္ေလ့လာႏိုင္ပါသည္။<br>
+        ေက်းဇူးတင္ပါသည္။
+        </h3>
+    </div>
+    <form class="w3-container w3-card-4 s12 m6 w3-col login" action="logging" method="POST">
      <div class="w3-container w3-indigo">
         <h2>LogIn Form</h2>
     </div>

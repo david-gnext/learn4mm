@@ -22,7 +22,7 @@ class IndexController extends Controller
     }
     
     public function index() {
-        $majors = DB::select('select * from major left join color on color.type = major.colortype');
+        $majors = DB::select('select m.id as mid,m.name as mname,m.description,c.name as cname,c.class from major as m left join color as c on c.type = m.id');
         return view('/welcome', ['majors' => $majors]);
     }
 }

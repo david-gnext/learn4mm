@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section("external")
+<script src="{{URL::asset('js/major.js')}}"></script>
+@endsection
 @section('title', 'Page Title')
 
 @section('sidebar')
@@ -21,10 +23,10 @@
           }
       } else {
           ?>
-          <div class="w3-card-4 w3-col s3 w3-center">
+          <div class="w3-card-4 w3-col m3 s6 w3-center">
 
                 <header class="w3-container <?= $major->class ?>">
-                    <h1><?= $major->majorname?></h1>
+                    <h4><?= $major->mname ?></h4>
                 </header>
 
                 <div class="w3-container">
@@ -32,7 +34,7 @@
                 </div>
 
                 <footer class="w3-container">
-                    <h5 class="w3-button <?= $major->class ?>">Learn Now</h5>
+                    <h5 class="start-learn-btn w3-button <?= $major->class ?>" id="<?=$major->mid?>">ေလ့လာမည္</h5>
                 </footer>
 
             </div>

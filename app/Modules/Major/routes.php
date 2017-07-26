@@ -11,3 +11,4 @@
 */
 
     Route::get('/major/index', 'Major\Controllers\IndexController@index')->middleware("auth.basic");
+    Route::get('/subject/{id}', 'Major\Controllers\SubjectController@index');

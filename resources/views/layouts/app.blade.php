@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content='width=device-width, initial-scale=1.0' name='viewport'>
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript" ></script>
         @yield("external")
         <title>App Name - @yield('title')</title>
            
@@ -14,19 +15,19 @@
     <body>
         @section("header")
         
-         <div class="w3-bar w3-border w3-indigo header w3-display-container">
-           <a href="#" class="w3-bar-item w3-bar-logo"></a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Link 1</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Link 2</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Link 3</a>
+         <div class="w3-bar w3-border w3-indigo header w3-row">
+          <a href="#" class="w3-bar-item w3-bar-logo w3-col s6 m3"></a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 1</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 2</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 3</a>
            @if (Route::has('login'))
-           <div class="w3-display-right">
+           <div class="w3-rest setting">
                     @if (Auth::check())
-                        <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green ">Home</a>
-                        <a href="{{url('/logout')}}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green ">Logout</a>
+                        <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Home</a>
+                        <a href="{{url('/logout')}}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Logout</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="#">Register(မရေသးပါ)</a>
+                        <a href="{{ url('/login') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green ">Login</a>
+                        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Register(မရေသးပါ)</a>
                     @endif
                     </div>
             @endif

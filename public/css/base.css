@@ -21,12 +21,32 @@ and open the template in the editor.
     width: 200px;
     height: 100px;
 }
+.setting {
+    float: right;
+}
 .main-content {
-    
+
 }
 .main-content .w3-row {
     margin: 1.5rem 0 0 0 ;
 }
 .main-content .w3-row div {
     margin:0 3rem;
+}
+@media (max-width:700px) {
+    .w3-bar .w3-bar-item.w3-bar-logo {
+        width: 50%;
+        height: 80px;
+    }
+    .w3-rest.setting {
+        width: 100%;
+        padding: 0 0 0 35%;
+        background:#5F51B5;
+    }
+    .main-content .w3-row {
+        margin: 0;
+    }
+    .main-content .w3-row div {
+        margin:0;
+    }
 }
