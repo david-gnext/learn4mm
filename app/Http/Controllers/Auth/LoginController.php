@@ -43,12 +43,12 @@ class LoginController extends Controller
         if (Auth::check()) {
             // Authentication passed...
             if(Auth::user()->role == 2) {
-            return redirect()->intended('welcome');
+            return redirect('/major/index');
             }else {
                 echo "Admin page is still developing";
             }
         } else {
-            return redirect('signin');
+            return view("User::signin");
         }
     }
     //logging in
