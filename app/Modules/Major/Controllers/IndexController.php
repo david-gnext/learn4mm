@@ -2,6 +2,7 @@
 namespace App\Modules\Major\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,8 +18,10 @@ class IndexController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    use AuthenticatesUsers;
+    
     public function __construct() {
-        $this->middleware("auth")->except("logout");
+        $this->middleware("auth");
     }
     
     public function index() {

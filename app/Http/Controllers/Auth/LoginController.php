@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 
 class LoginController extends Controller
 {
@@ -49,17 +48,14 @@ class LoginController extends Controller
                 echo "Admin page is still developing";
             }
         } else {
-            return redirect("/signin");
+            return redirect('signin');
         }
     }
     //logging in
     public function login(Request $request) {
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
-             if(Auth::user()->role == 2) {
+//             if(Auth::user()->role == 2) {
                 return redirect("/");
-             } else {
-                return redirect("/major/index");
-             }
          } else {
               return redirect('/signin')->with("message","Incorrect Password or username");
          }

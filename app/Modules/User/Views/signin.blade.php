@@ -17,11 +17,11 @@
         ေက်းဇူးတင္ပါသည္။
         </h3>
     </div>
-    <form class="w3-container w3-card-4 s12 m6 w3-col login" action="logging" method="POST">
+    <form class="w3-container w3-card-4 s12 m6 w3-col login" action="logging" method="post">
      <div class="w3-container w3-indigo">
         <h2>LogIn Form</h2>
     </div>
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     <label class="w3-text-indigo"><b>Email</b></label>
     <input class="w3-input w3-border" name="email" type="text">
 

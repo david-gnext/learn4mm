@@ -21,10 +21,9 @@ class ContentController extends Controller
     }
     
     public function index($id) {
-        $subjects = DB::select('select co.*,c.class from content as co left join subject as s on s.id = co.subjectid left join on color '
-                . 'as c on c.type = s.majorid where co.subjectid = ?',[$id]);
-        var_dump($subjects);exit;
-        return view('Major::subject/index', ['subjects' => $subjects]);
+        $subjects = DB::table("content")->join("subject","subject.id","=","content.subjectid")
+                ->join("color","color.type","=","subject.majorid")->select("content.*","color.class")->paginate(1);
+        return view('Major::content/index', ['subjects' => $subjects]);
         
     }
 }
