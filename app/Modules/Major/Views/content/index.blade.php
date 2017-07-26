@@ -19,7 +19,16 @@
                 </div>
 
                 <footer class="w3-container">
-                    <h5 class="sub-learn-btn w3-button <?= $subject->class ?>">ေနာက္တစ္ခု</h5>
+                    <?php 
+                    if(!$subjects->hasMorePages()){
+                        echo '<a class="sub-learn-btn w3-button '.$subject->class.'" href="">ၿပီးပါၿပီ</a>';
+                    }
+                    else {
+                        ?>
+                        <h5 class="sub-learn-btn w3-button <?= $subject->class ?>" data-link="<?=$subjects->nextPageUrl()?>">ေနာက္တစ္ခု</h5>
+                    <?php
+                    }
+                    ?>
                 </footer>
 
             </div>

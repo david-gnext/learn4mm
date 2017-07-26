@@ -15,8 +15,14 @@ $(document).ready(function(){
         });
     });
     $(document).on("click",".sub-learn-btn",function() {
+        var link;
+        if(typeof $(this).data("link") != "undefined") {
+            link = $(this).data("link");
+        } else {
+            link = "content/"+this.id;
+        }
         $.ajax({
-            url : "content/"+this.id,
+            url : link,
             type:"get",
             dataType : "html",
             success : function (html) {

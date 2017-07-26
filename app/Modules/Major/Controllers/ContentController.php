@@ -22,7 +22,7 @@ class ContentController extends Controller
     
     public function index($id) {
         $subjects = DB::table("content")->join("subject","subject.id","=","content.subjectid")
-                ->join("color","color.type","=","subject.majorid")->select("content.*","color.class")->paginate(1);
+                ->join("color","color.type","=","subject.majorid")->where('content.subjectid','=',$id)->select("content.*","color.class")->paginate(1);
         return view('Major::content/index', ['subjects' => $subjects]);
         
     }
