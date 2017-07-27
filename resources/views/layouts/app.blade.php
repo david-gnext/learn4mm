@@ -15,7 +15,7 @@
     <body>
         @section("header")
         
-         <div class="w3-bar w3-border w3-indigo header w3-row">
+         <div class="w3-bar w3-border w3-indigo header w3-row w3-card-4">
           <a href="#" class="w3-bar-item w3-bar-logo w3-col s6 m3"></a>
           <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 1</a>
           <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 2</a>

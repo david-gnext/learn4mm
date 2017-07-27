@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',['uses' => '\App\Modules\Major\Controllers\IndexController@index']);
+Route::group(['middleware' => ['web']],function(){
+Route::get('/',['uses' => '\App\Modules\Major\Controllers\IndexController@index'])->middleware('auth');
 Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@index']);
 Route::get('/signin',function() {
     return view("User::signin");
@@ -18,4 +19,5 @@ Route::get('/signin',function() {
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/new/create', function () {
     return view("saw");
+});
 });

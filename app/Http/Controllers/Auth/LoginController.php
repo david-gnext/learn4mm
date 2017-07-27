@@ -40,24 +40,31 @@ class LoginController extends Controller
     }
     
     public function index() {
+        if(isset($_SESSION['david'])) {
+            echo "dd";exit;
+        }
+        var_dump($_SESSION);
+        var_dump($_COOKIE);exit;
         if (Auth::check()) {
             // Authentication passed...
             if(Auth::user()->role == 2) {
-            return redirect('/major/index');
+            return view('Major::index');exit;
             }else {
                 echo "Admin page is still developing";
             }
         } else {
-            return view("User::signin");
+            return view("User::signin");exit;
         }
     }
     //logging in
     public function login(Request $request) {
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
+             $_SESSION['david'] = true;
+             $_COOKIE['david'] = true;
 //             if(Auth::user()->role == 2) {
-                return redirect("/");
+                return redirect("/");exit;
          } else {
-              return redirect('/signin')->with("message","Incorrect Password or username");
+              return view("User::signin")->with("message","Incorrect Password or username");exit;
          }
     }
     public function logout() {

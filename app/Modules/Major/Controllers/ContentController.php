@@ -3,7 +3,8 @@ namespace App\Modules\Major\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request;
+use App\Http\Requests;
 class ContentController extends Controller
 {
     /*
@@ -20,11 +21,10 @@ class ContentController extends Controller
         $this->middleware("auth")->except("logout");
     }
     
-    public function index($id) {
+    public function index(Request $request,$id) {
         $subjects = DB::table("content")->join("subject","subject.id","=","content.subjectid")
                 ->join("color","color.type","=","subject.majorid")->where('content.subjectid','=',$id)->select("content.*","color.class")->paginate(1);
         return view('Major::content/index', ['subjects' => $subjects]);
-        
     }
 }
 
