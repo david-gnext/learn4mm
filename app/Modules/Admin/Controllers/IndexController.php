@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Major\Controllers;
+namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-     public function __construct()
-    {
-        $this->middleware('role')->except('logout');
-    }
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -24,7 +20,6 @@ class IndexController extends Controller
    
     
     public function index(Request $request) {
-        $majors = DB::select('select m.id as mid,m.name as mname,m.description,c.name as cname,c.class from major as m left join color as c on c.type = m.id');
-        return view('/welcome', ['majors' => $majors]);
+        return view("Admin::index");
     }
 }

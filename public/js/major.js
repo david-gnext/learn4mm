@@ -3,32 +3,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(document).ready(function(){
-    $(".start-learn-btn").on("click",function() {
-        $.ajax({
-            url : "subject/"+this.id,
+ var Major = {
+    init: function() {
+        Major.subject.init();
+        Major.content.init();
+    },
+    subject : {
+        init : function() {
+            $(".start-learn-btn").on("click",function() {
+                Major.subject.get(this.id);
+            });
+        },
+        get : function(id){
+            $.ajax({
+            url : "subject/"+id,
             type:"get",
             dataType : "html",
             success : function (html) {
                 $(".main-content").html(html);
             }
-        });
-    });
-    $(document).on("click",".sub-learn-btn",function() {
-        var link;
-        if(typeof $(this).data("link") != "undefined") {
-            link = $(this).data("link");
-        } else {
-            link = "content/"+this.id;
+            });
         }
-        $.ajax({
-            url : link,
-            type:"get",
-            dataType : "html",
-            success : function (html) {
-                $(".main-content").html(html);
+    },
+    content : {
+        init:function() {
+            $(document).on("click",".sub-learn-btn",function() {
+                Major.content.get($(this).data("link"),this.id);
+            });
+        },
+        get : function(link,id){
+            if(typeof link == "undefined") {
+                link = "content/"+id;
             }
-        });
-    });
+            $.ajax({
+                url : link,
+                type:"get",
+                dataType : "html",
+                success : function (html) {
+                    $(".main-content").html(html);
+                }
+            });
+        }
+    }
+
+ }
+$(document).ready(function(){
+    Major.init();
 });
 

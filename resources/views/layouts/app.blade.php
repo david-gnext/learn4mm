@@ -6,7 +6,7 @@
         <meta content='width=device-width, initial-scale=1.0' name='viewport'>
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript" ></script>
+        <script src="{{URL::asset('/js/jquery.js')}}" type="text/javascript" ></script>
         @yield("external")
         <title>App Name - @yield('title')</title>
            
@@ -34,7 +34,7 @@
         </div>
         
         @section('sidebar')
-           
+
         @show
 
         <div class="container">

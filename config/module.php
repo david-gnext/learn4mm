@@ -5,5 +5,6 @@ return  [
     'modules' => [
        'User',
        'Major',
+        'Admin'
     ]
 ];
