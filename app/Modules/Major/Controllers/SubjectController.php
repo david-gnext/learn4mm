@@ -21,7 +21,7 @@ class SubjectController extends Controller
     }
     
     public function index($id) {
-        $subjects = DB::select('select s.id as sid,s.name as sname,s.description,s.isRead as rd,c.class from subject as s left join color as c on c.type = s.majorid where s.majorid = ?',[$id]);
+        $subjects = DB::select('select s.id as sid,s.name as sname,s.description,s.isRead as rd,m.color as class from subject as s left join major as m on m.id = s.majorid where s.majorid = ? and s.deleted_flag = 0',[$id]);
         return view('Major::subject/index', ['subjects' => $subjects]);
         
     }

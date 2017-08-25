@@ -8,7 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt|\.eot|\.woff|\.woff2)$ [NC]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [L]
@@ -16,7 +16,7 @@ RewriteRule ^ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(css|js|images|img)/(.*)$ public/$1/$2 [L,NC]
+RewriteRule ^(css|js|images|img|fonts)/(.*)$ public/$1/$2 [L,NC]
 
 # Handle Authorization Header
 RewriteCond %{HTTP:Authorization} ^(.+)$

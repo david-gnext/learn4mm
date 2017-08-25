@@ -6,6 +6,8 @@
         <meta content='width=device-width, initial-scale=1.0' name='viewport'>
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
+        <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/font-awesome.css')}}" >
+        <link href="../img/logo.png" rel="icon"/>
         <script src="{{URL::asset('/js/jquery.js')}}" type="text/javascript" ></script>
         @yield("external")
         <title>App Name - @yield('title')</title>
@@ -23,11 +25,11 @@
            @if (Route::has('login'))
            <div class="w3-rest setting">
                     @if (Auth::check())
-                        <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Home</a>
-                        <a href="{{url('/logout')}}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Logout</a>
+                        <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green"><i class="fa fa-home"></i>Home</a>
+                        <a href="{{url('/logout')}}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green"><i class="fa fa-sign-out"></i>Logout</a>
                     @else
-                        <a href="{{ url('/login') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green ">Login</a>
-                        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green">Register(မရေသးပါ)</a>
+                        <a href="{{ url('/login') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green "><i class="fa fa-sign-in"></i>Login</a>
+                        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green"><i class="fa fa-registered"></i>Register(မရေသးပါ)</a>
                     @endif
                     </div>
             @endif

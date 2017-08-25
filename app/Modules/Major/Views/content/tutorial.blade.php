@@ -4,8 +4,9 @@
                 "</div><a href='' class='w3-btn w3-display-middle w3-indigo'>Home</a>";
     }
     else {
-    foreach ($subjects as $k=>$subject) {
-       echo file_get_contents($subject->content_main);
+       echo '<div class="flex-center position-ref full-height w3-container main-content"><div class="w3-row">';
+       echo '<div class="w3-col m11 s12 w3-border-gray  w3-white w3-card-4">';
+       echo file_get_contents($subjects[0]->content_main);
+       echo '</div></div></div>';
     }  
-    }
 ?>

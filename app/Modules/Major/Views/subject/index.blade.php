@@ -26,7 +26,7 @@
                 </div>
 
                 <footer class="w3-container">
-                    <h5 class="sub-learn-btn w3-button <?= $subject->class ?>" id="<?=$subject->sid?>">ေလ့လာမည္</h5>
+                    <h5 class="sub-learn-btn w3-button <?= $subject->class ?>" id="<?=$subject->sid?>" data-type="<?=$subject->rd?>"><i class="fa fa-mortar-board"></i>ေလ့လာမည္</h5>
                 </footer>
 
             </div>

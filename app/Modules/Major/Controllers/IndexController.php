@@ -24,7 +24,7 @@ class IndexController extends Controller
    
     
     public function index(Request $request) {
-        $majors = DB::select('select m.id as mid,m.name as mname,m.description,c.name as cname,c.class from major as m left join color as c on c.type = m.id');
+        $majors = DB::select('select m.id as mid,m.name as mname,m.description,m.color as class from major as m where m.deleted_flag = 0');
         return view('/welcome', ['majors' => $majors]);
     }
 }

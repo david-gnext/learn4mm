@@ -1,70 +1,24 @@
-<?php
-function display($subjects) {
-    if (count($subjects) == 0) {
-        echo "<div class='w3-panel w3-yellow w3-leftbar w3-border-red'><p style='padding:2rem;'>ယခုဘာသာရပ္အားမတင္ရေသးပါ။မၾကာမီလာမည္။</p>" .
-        "</div><a href='' class='w3-btn w3-display-middle w3-indigo'>Home</a>";
-    } else {
-        echo '<div class="flex-center position-ref full-height w3-container main-content"><div class="w3-row">';
-        foreach ($subjects as $k => $subject) {
-            ?>
-            <div class="w3-col m11 s12 w3-center w3-border-gray w3-card-4">
-
-                <header class="w3-container <?= $subject->class ?>">
-                    <h4><?= $subject->content_main ?></h4>
-                </header>
-
-                <div class="w3-container">
-                    <p><?= $subject->content_mm ?></p>
-                    <?php
-                    if (FALSE == empty($subject->ans)) {
-                        echo "<div class='ques-ans'>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q' value>$subject->q1</div>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'>$subject->q2</div>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'>$subject->q3</div>";
-                        echo "</div>";
-                    } else {
-                        ?>
-                        <img src="<?= $subject->img ?>" height="300"/>
-                        <?php
-                    }
-                    ?>
-                </div>
-
-                <footer class="w3-container">
-                    <?php
-                    if (!$subjects->hasMorePages()) {
-                        echo '<a class="sub-learn-btn w3-button ' . $subject->class . '" href="">ၿပီးပါၿပီ</a>';
-                    } else {
-                        ?>
-                        <h5 class="sub-learn-btn w3-button <?= $subject->class ?>" data-link="<?= $subjects->nextPageUrl() ?>">ေနာက္တစ္ခု</h5>
-                        <?php
-                    }
-                    ?>
-                </footer>
-
-            </div>
-            <?php
+<header class="w3-container" style="padding-top:22px">   
+    <h4><i class="fa fa-book"></i> Content Management</h4>
+</header>
+@include("Admin::dbstatus")
+<nav class="w3-container w3-topbar w3-pale-green">
+    <a href="#" class="w3-button w3-padding-16 w3-white">Add</a>
+</nav>
+<div class="w3-responsive">
+<table class="w3-table w3-bordered w3-border manage-table">
+    <thead>
+        <tr>
+            <th>Name</th><th>Description</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach($dbstatus["major"]["data"] as $m) {
+            echo "<tr><td><input type='text' value='$m->name'  class='w3-input readonly' readonly></td><td><input type='text' value='$m->description' class='w3-input readonly' readonly></td>";
+            echo "<td><button type='button' class='w3-button w3-indigo'>Select</button><input type='hidden' value='$m->id' class='edit-major-id'></td></tr>";
         }
-        echo "</div></div>";
-    }
-}
-?>
-<?php
-if (!$ajax) {
-    ?>    
-    @extends("layouts.app")
-    @section('title', 'Content')
-
-    @section('sidebar')
-    @parent
-
-    @endsection
-    @section('content')
-    <?= display($subjects) ?>
-    @endsection
-    <?php
-} else {
-    display($subjects);
-    exit;
-}
-?>   
+        ?>
+    </tbody>
+</table>
+</div>

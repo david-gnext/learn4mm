@@ -1,14 +1,33 @@
+@if(!$ajax)
 @extends("layouts.dashboard")
+@section("title","Admin Dashboard")
 @section('content')
+  <?=display(300)?>
+@endsection
+@else
+ <?=display(0)?>
+@endif
+<?php
+function display($px) {
+?>    
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;">
+<div class="w3-main" style="margin-left:<?=$px;?>px;">
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
   </header>
-
-  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-xxlarge w3-row-padding">
+      <div class="w3-container w3-black w3-padding-16">
+        <div class="w3-left">Most Viewed Subject</div>
+        <div class="w3-right">
+          <h3>52</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>English Verb</h4>
+      </div>
+   </div>
+  <div class="w3-row-padding w3-margin-bottom w3-margin-top">
     <div class="w3-quarter">
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
@@ -55,7 +74,7 @@
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Regions</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+        <img src="../img/logo.png" style="width:100%" alt="Google Regional Map">
       </div>
       <div class="w3-twothird">
         <h5>Feeds</h5>
@@ -154,15 +173,15 @@
     <h5>Recent Users</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
-        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="../img/logo.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Mike</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="../img/logo.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Jill</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <img src="../img/logo.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Jane</span><br>
       </li>
     </ul>
@@ -173,7 +192,7 @@
     <h5>Recent Comments</h5>
     <div class="w3-row">
       <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+        <img class="w3-circle" src="../img/logo.png" style="width:96px;height:96px">
       </div>
       <div class="w3-col m10 w3-container">
         <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
@@ -183,7 +202,7 @@
 
     <div class="w3-row">
       <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+        <img class="w3-circle" src="../img/logo.png" style="width:96px;height:96px">
       </div>
       <div class="w3-col m10 w3-container">
         <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
@@ -218,4 +237,6 @@
 
   <!-- End page content -->
 </div>
-@endsection
+<?php 
+}
+?>

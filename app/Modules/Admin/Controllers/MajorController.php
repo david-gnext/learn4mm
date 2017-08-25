@@ -4,7 +4,8 @@ namespace App\Modules\Admin\Controllers;
 use App\Modules\Admin\Controllers\BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-class ContentController extends BaseController
+use Illuminate\Support\Facades\View;
+class MajorController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -23,12 +24,22 @@ class ContentController extends BaseController
     public function index(Request $request) {
         $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->paginate(10);
-        return view("Admin::content/index",["dbstatus"=>$data]);
+        return view("Admin::major/index",["dbstatus"=>$data]);
     }
-    public function getByMajorId($id){
-        $data = DB::table("subject")->where("majorid",$id)->paginate(10);
-        return view("Admin::content/get",["subject"=>$data]);
+    public function insert() {
+        return view("Admin::modal",['colors'=>$this->colors()]);
+    }
+    public function save(Request $request,$id) {
+        if($id == "new") {
+            DB::table("major")->insert(
+                    ['name'=>$request->name,'description'=>$request->desc,'color'=>$request->cname]
+                    );
+            echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
+        } else {
+            
+        }
     }
 }
+
 
 

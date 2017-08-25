@@ -28,10 +28,10 @@
     content : {
         init:function() {
             $(document).on("click",".sub-learn-btn",function() {
-                Major.content.get($(this).data("link"),this.id);
+                Major.content.get($(this).data("link"),this.id,$(this).data('type'));
             });
         },
-        get : function(link,id){
+        get : function(link,id,type){
             if(typeof link == "undefined") {
                 link = "content/"+id;
             }
@@ -40,6 +40,9 @@
                 type:"get",
                 dataType : "html",
                 success : function (html) {
+                    if(type) {
+                        $('body').addClass("w3-gray");
+                    }
                     $(".main-content").html(html);
                 }
             });

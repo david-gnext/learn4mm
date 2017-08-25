@@ -1,10 +1,10 @@
 <?php
-namespace App\Modules\Major\Controllers;
+namespace App\Modules\Admin\Controllers;
 
-use App\Http\Controllers\Controller;
+use  App\Modules\Admin\Controllers\BaseController;
 use Illuminate\Support\Facades\DB;
 
-class SubjectController extends Controller
+class SubjectController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -20,10 +20,14 @@ class SubjectController extends Controller
         $this->middleware("auth")->except("logout");
     }
     
-    public function index($id) {
-        $subjects = DB::select('select s.id as sid,s.name as sname,s.description,s.isRead as rd,c.class from subject as s left join color as c on c.type = s.majorid where s.majorid = ?',[$id]);
-        return view('Major::subject/index', ['subjects' => $subjects]);
-        
+    public function index() {
+        $data = $this->getDBInfo();
+        $data["major"]["data"] = DB::table("major")->paginate(10);
+        return view("Admin::subject/index",["dbstatus"=>$data]);
+    }
+    public function getByMajorId($id){
+        $data = DB::table("subject")->where("majorid",$id)->paginate(10);
+        return view("Admin::subject/get",["subject"=>$data]);
     }
 }
 

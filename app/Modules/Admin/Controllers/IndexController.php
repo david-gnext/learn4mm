@@ -20,6 +20,6 @@ class IndexController extends Controller
    
     
     public function index(Request $request) {
-        return view("Admin::index");
+        return view("Admin::index",['ajax'=>$request->ajax()]);
     }
 }

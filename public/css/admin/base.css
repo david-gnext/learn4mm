@@ -8,6 +8,36 @@ and open the template in the editor.
     Author     : david
 */
 #open_menu {
-    padding: 1rem;
-    
+    padding: 1rem;    
+}
+.manage-table {
+    width: 100%;
+    table-layout: fixed;
+}
+.manage-table thead,.manage-table tbody {
+    width: 100%;
+    display: block;
+}
+.manage-table th ,.manage-table td {
+    width: 100vw;
+}
+.manage-table tbody {
+    max-height: calc(100vh - 350px);
+    overflow: auto;
+}
+.readonly {
+    width: 100%;
+    line-height: 30px;
+    border:none;
+}
+@media (max-width:700px) {
+    .manage-table thead th:first-child,.manage-table tbody td:first-child {
+    width: 100px;
+}
+.manage-table thead th:nth-child(2),.manage-table tbody td:nth-child(2) {
+    width: 400px;
+}
+.manage-table thead th:last-child,.manage-table tbody td:last-child {
+    width: 200px;
+}
 }
