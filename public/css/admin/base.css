@@ -30,6 +30,11 @@ and open the template in the editor.
     line-height: 30px;
     border:none;
 }
+.info-step {
+    width : 100%;
+    height: auto;
+    padding-top: 200px;
+}
 @media (max-width:700px) {
     .manage-table thead th:first-child,.manage-table tbody td:first-child {
     width: 100px;

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section("external")
+<script src="{{URL::asset('js/base.js')}}"></script>
 <script src="{{URL::asset('js/major.js')}}"></script>
 @endsection
 @section('title', 'Page Title')

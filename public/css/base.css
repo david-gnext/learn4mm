@@ -27,6 +27,10 @@ and open the template in the editor.
 .main-content .w3-row {
    margin: 1.5rem 0 0 0 ;
 }
+.main-content .w3-container p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 .main-content .w3-row .w3-middle{
     float:none;
     margin:0 auto;
@@ -54,6 +58,15 @@ and open the template in the editor.
     position: relative;
     width: 27px;
 }
+.ques-ans span {
+    position: relative;
+    float: left;
+    left:45%;
+}
+.ques-ans i {
+    margin-left: 3rem;
+    padding: 5px;
+}
 .ques-ans div {
     padding: 1rem;
 }
@@ -62,6 +75,9 @@ and open the template in the editor.
 }
 .input-error {
     border: 1px solid red !important;
+}
+.info-flash {
+    box-shadow : 0px 0px 3px 12px midnightblue;
 }
 .loader {
     border: 16px solid lightgray; /* Light grey */

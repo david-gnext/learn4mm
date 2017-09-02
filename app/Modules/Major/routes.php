@@ -13,3 +13,4 @@
     Route::get('/major/index', 'Major\Controllers\IndexController@index')->middleware("auth");
     Route::get('/subject/{id}', 'Major\Controllers\SubjectController@index');
     Route::get('/content/{id}', 'Major\Controllers\ContentController@index');
+    Route::get('/content/check/{id}', 'Major\Controllers\ContentController@check')->middleware("auth");

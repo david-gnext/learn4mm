@@ -10,7 +10,17 @@ function display($subjects) {
             <div class="w3-col m11 s12 w3-center w3-border-gray w3-card-4">
 
                 <header class="w3-container <?= $subject->class ?>">
-                    <h4><?= $subject->content_main ?></h4>
+                    <h4><?= $subject->content_main ?>
+                        <?php
+                        if($subject->audio !== ""){
+                         ?>
+                        <i class="fa fa-volume-up"><audio  autoplay>
+                        <source src="http://api.voicerss.org/?key=22c870c268904e7e9c93ece4476188d1&hl=en-us&src=<?=$subject->content_main?>" type="audio/mp3">
+                        </audio></i>
+                        <?php
+                        }
+                        ?>
+                    </h4>
                 </header>
 
                 <div class="w3-container">
@@ -18,10 +28,11 @@ function display($subjects) {
                     <?php
                     if (FALSE == empty($subject->ans)) {
                         echo "<div class='ques-ans'>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q' value>$subject->q1</div>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'>$subject->q2</div>";
-                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'>$subject->q3</div>";
-                        echo "</div>";
+                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'><span>$subject->q1</span></div>";
+                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'><span>$subject->q2</span></div>";
+                        echo "<div class='w3-col m10 s12'><input  type='radio' name='q'><span>$subject->q3</span></div>";
+                        echo "</div><input type='hidden' value='$subject->id' id='content_id'>";
+                        echo "<input type='hidden' value='$subject->hint' id='hint'>";
                     } else {
                         ?>
                         <img src="<?= $subject->img ?>" height="300"/>

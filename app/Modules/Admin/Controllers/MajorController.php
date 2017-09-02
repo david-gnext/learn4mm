@@ -23,11 +23,22 @@ class MajorController extends BaseController
     
     public function index(Request $request) {
         $data = $this->getDBInfo();
-        $data["major"]["data"] = DB::table("major")->paginate(10);
+        $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
         return view("Admin::major/index",["dbstatus"=>$data]);
     }
     public function insert() {
-        return view("Admin::modal",['colors'=>$this->colors()]);
+        $data = array(
+            "title" => "Create Major",
+            "id"=>"major_create",
+            "child"=>"major"
+        );
+        return view("Admin::modal",['colors'=>$this->colors(),'data'=>$data]);
+    }
+    public function delete($id) {
+        DB::table("major")->where("id",$id)->update(
+                    ['deleted_flag'=>1]
+                    );
+        echo json_encode(array("code"=>200,"msg"=>"Deleted Successfully"));
     }
     public function save(Request $request,$id) {
         if($id == "new") {
@@ -36,7 +47,10 @@ class MajorController extends BaseController
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
-            
+            DB::table("major")->where("id",$id)->update(
+                    ['name'=>$request->name,'description'=>$request->desc]
+                    );
+            echo json_encode(array("code"=>200,"msg"=>"Updated Successfully"));
         }
     }
 }

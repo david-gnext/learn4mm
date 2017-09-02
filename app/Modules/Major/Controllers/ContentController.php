@@ -30,6 +30,10 @@ class ContentController extends Controller
             return view('Major::content/tutorial', ['subjects' => $subjects,'ajax'=>$request->ajax()]);
         }
     }
+    public function check(Request $request,$id) {
+         $content = DB::table("content")->where('id',$id)->get();
+         echo json_encode([$content[0]->{$content[0]->ans},$content[0]->{$content[0]->ans} == $request->ans]);
+    }
 }
 
 

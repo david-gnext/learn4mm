@@ -3,7 +3,7 @@
 </header>
 @include("Admin::dbstatus")
 <nav class="w3-container w3-topbar w3-gray">
-    <a href="#major_add_modal" class="w3-btn w3-padding-16 w3-white" id="major_add" title="Create Major"><i class="fa fa-plus-circle"></i></a>
+    <a class="w3-btn w3-padding-16 w3-white" id="major_add" title="Create Major"><i class="fa fa-plus-circle"></i></a>
 </nav>
 <div class="w3-responsive">
 <table class="w3-table w3-bordered w3-border manage-table">

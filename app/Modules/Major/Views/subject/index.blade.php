@@ -7,13 +7,6 @@
     echo '<div class="w3-row">';
     foreach ($subjects as $k=>$subject) {
         $divi = $k + 1;
-      if($divi % 3 == 0 ) {
-          if(count($subjects) == $k) {
-              echo "</div>";
-          } else {
-              echo "</div><div class='w3-row'>";
-          }
-      } else {
           ?>
           <div class="w3-card-4 w3-col m3 s6 w3-center">
 
@@ -31,6 +24,12 @@
 
             </div>
     <?php
+     if($divi % 3 == 0 ) {
+          if(count($subjects) == $k) {
+              echo "</div>";
+          } else {
+              echo "</div><div class='w3-row'>";
+          }
       }
     }
     }

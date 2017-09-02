@@ -51,7 +51,12 @@ var Core = {
          $.ajax({
                  url : BASE_URL+'/'+link,
                  type:'GET',
-                 success : callback
+                 success : callback,
+                 error : function(e) {
+                     if(e.statusText == "Unauthorized") {
+                         location.reload();
+                     }
+                 }
              });
     },
     loadingIcon: function(toggle) {
@@ -59,6 +64,16 @@ var Core = {
         if(toggle) {
             $("body").append("<div class='w3-display-middle loader'></div>");
         }
+    },
+    infoFlash: function(ele){
+        //flash message
+        var info = setInterval(function(){
+            ele.toggleClass("info-flash");
+        },500);
+        setTimeout(function(){
+            ele.removeClass("info-flash");
+           clearInterval(info);
+        },6000);
     }
 };
 $(document).ready(function() {

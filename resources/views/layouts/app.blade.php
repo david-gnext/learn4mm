@@ -17,11 +17,11 @@
     <body>
         @section("header")
         
-         <div class="w3-bar w3-border w3-indigo header w3-row w3-card-4">
-          <a href="#" class="w3-bar-item w3-bar-logo w3-col s6 m3"></a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 1</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 2</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-col s6 m1">Link 3</a>
+         <div class="w3-bar w3-border w3-indigo header w3-row w3-card-4 w3-small">
+          <a href="#" class="w3-bar-item w3-bar-logo"></a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-hide-small">About</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-hide-small">Contact Me</a>
+          <span class="w3-bar-item w3-button w3-white w3-text-indigo w3-large w3-hover-white w3-col s12 m4">သင္ယူေလ့လာၿပီးမွ်ေ၀လိုက္ၾကရေအာင္</span>
            @if (Route::has('login'))
            <div class="w3-rest setting">
                     @if (Auth::check())
