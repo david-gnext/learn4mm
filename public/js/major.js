@@ -26,6 +26,8 @@
         }
     },
     content : {
+        ans : null,
+        hint : null,
         init:function() {
             Major.content.clickSound();
             $(document).on("click",".sub-learn-btn",function(e) {
@@ -42,32 +44,30 @@
             });
         },
         checkAns:function () {
-           $.get("content/check/"+$("#content_id").val(),{ans:$(".ques-ans :radio:checked").parent().text()},function(d){
-               d = JSON.parse(d);
-               if(d[1]) {
-                   var a = new Audio("audio/correct_answer.mp3");
-                   a.play();
-                   $(".ques-ans :radio:checked").parent().append("<i class='fa fa-check-circle w3-green w3-center'></i>");
-                   Major.content.nextStep();
-                   return true;
-               }
-               var a = new Audio("audio/wrong_answer.mp3");
-               a.play();
-               $(".ques-ans div").each(function(){
-                   if($(this).text() == d[0]) {
-                       $(this).append("<i class='fa fa-check-circle w3-green'></i>");
-                   }
-               });
-              $(".ques-ans :radio:checked").parent().append("<i class='fa fa-times-circle w3-red'></i>");
-             var info = '<div id="model-info-dialog" class="w3-modal"><div class="w3-modal-dialog"><div class="w3-modal-content w3-card-4">'
-                                +'<header class="w3-container w3-red"><a href="#" class="model-info"><i class="fa fa-close"></i></a><h2>'+$("#hint").val()+'</h2></header></div></div>';
-            $(".main-content").append(info);
-            $("#model-info-dialog").show();
-            $(".model-info").on("click",function(){
-                $("#model-info-dialog").remove();
+            var userAns = $(".ques-ans :radio:checked").parent().text();
+               if(userAns == Major.content.ans) {
+                var a = new Audio("audio/correct_answer.mp3");
+                a.play();
+                $(".ques-ans :radio:checked").parent().append("<i class='fa fa-check-circle w3-green w3-center'></i>");
+                Major.content.nextStep();
+                return true;
+            }
+            var a = new Audio("audio/wrong_answer.mp3");
+            a.play();
+            $(".ques-ans div").each(function(){
+                if($(this).text() == Major.content.ans) {
+                    $(this).append("<i class='fa fa-check-circle w3-green'></i>");
+                }
             });
-              Major.content.nextStep();
-           });
+           $(".ques-ans :radio:checked").parent().append("<i class='fa fa-times-circle w3-red'></i>");
+          var info = '<div id="model-info-dialog" class="w3-modal"><div class="w3-modal-dialog"><div class="w3-modal-content w3-card-4">'
+                             +'<header class="w3-container w3-red"><a href="#" class="model-info"><i class="fa fa-close"></i></a><h2>'+Major.content.hint+'</h2></header></div></div>';
+         $(".main-content").append(info);
+         $("#model-info-dialog").show();
+         $(".model-info").on("click",function(){
+             $("#model-info-dialog").remove();
+         });
+         Major.content.nextStep();
         },
         nextStep: function() {
             $(".sub-learn-btn").prop("disabled",true);
@@ -108,7 +108,15 @@
                     if(type) {
                         $('body').addClass("w3-gray");
                     }
+                    if($(html).find("#hint").length) {
+                        Major.content.hint = $(html).find("#hint").val();
+                    }
+                    if($(html).find("#ans").length) {
+                        var idx = $(html).find("#ans").val().split("")[1] - 1;
+                        Major.content.ans = $(html).find(".ques-ans span").eq(idx).text();
+                    }
                     $(".main-content").html(html);
+                    $("#hint").remove();$("#ans").remove();
                     if(type != null & $(".fa-volume-up").length) {
                                 //info for audio
                          var info = '<div id="model-info-dialog" class="w3-modal"><div class="w3-modal-dialog"><div class="w3-modal-content w3-card-4">'

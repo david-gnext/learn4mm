@@ -33,6 +33,7 @@ function display($subjects) {
                         echo "<div class='w3-col m10 s12'><input  type='radio' name='q'><span>$subject->q3</span></div>";
                         echo "</div><input type='hidden' value='$subject->id' id='content_id'>";
                         echo "<input type='hidden' value='$subject->hint' id='hint'>";
+                        echo "<input type='hidden' value='$subject->ans' id='ans'>";
                     } else {
                         ?>
                         <img src="<?= $subject->img ?>" height="300"/>
