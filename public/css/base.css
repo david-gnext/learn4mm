@@ -79,6 +79,26 @@ and open the template in the editor.
 .info-flash {
     box-shadow : 0px 0px 3px 12px midnightblue;
 }
+.read-content {
+    max-height: calc(100vh - 180px);
+    overflow: auto;
+}
+.read-section h3 {
+    margin : 0;
+}
+.w3-row .w3-code {
+    display: block;
+    white-space: pre-wrap;
+    border-left:none;
+    background-color: #eee;
+}
+.w3-border-purple {
+    border-left:4px solid purple;
+}
+.helper-word {
+    color:#3f51b5;
+    font-weight: bold;
+}
 .loader {
     border: 16px solid lightgray; /* Light grey */
     border-top: 16px solid #3f51b5; /* Blue */

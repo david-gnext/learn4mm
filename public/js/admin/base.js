@@ -5,6 +5,9 @@
  */
 var Admin = {
     init:function() {
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
         Admin.setButtonListen();
     },
     setButtonListen: function() {
@@ -96,7 +99,6 @@ var Admin = {
             $.ajax({
                 url : BASE_URL + '/admin/major/delete/'+id,
                 type : 'DELETE',
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 dataType : "json",
                 success : function(d) {
                     alert(d.msg);
@@ -286,7 +288,7 @@ var Admin = {
                     if(link == "subject") {
                         $("#content_add").removeClass("disabled");
                         var thead = "<th>Content Main</th><th>Myanmar Meaning</th><th>question1</th><th>question2</th><th>question3</th>"
-                                      + "<th>Answer</th><th>Choose Content Type</th><th>Audio</th><th>Image Link</th><th></th>";
+                                      + "<th>Answer</th><th>Hint</th><th>Choose Content Type</th><th>Audio</th><th>Image Link</th><th></th>";
                         $(".manage-table thead tr").html(thead);
                     }
                     Core.loadingIcon(true);

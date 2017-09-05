@@ -8,6 +8,7 @@
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/font-awesome.css')}}" >
         <link href="../img/logo.png" rel="icon"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="{{URL::asset('/js/jquery.js')}}" type="text/javascript" ></script>
         @yield("external")
         <title>App Name - @yield('title')</title>

@@ -24,7 +24,7 @@ function display($subjects) {
                 </header>
 
                 <div class="w3-container">
-                    <p><?= $subject->content_mm ?></p>
+                    <p class="w3-padding"><?= $subject->content_mm ?></p>
                     <?php
                     if (FALSE == empty($subject->ans)) {
                         echo "<div class='ques-ans'>";
@@ -36,8 +36,9 @@ function display($subjects) {
                         echo "<input type='hidden' value='$subject->ans' id='ans'>";
                     } else {
                         ?>
-                        <img src="<?= $subject->img ?>" height="300"/>
+                        <img src="<?= $subject->img ?>" width="300" height="300" class="w3-image"/>
                         <?php
+                        if($subject->hint)  echo "<div class='w3-orange w3-margin-top w3-padding'><p class='w3-xlarge w3-text-white'>မွတ္မိလြယ္ေစရန္</p>$subject->hint</div>";
                     }
                     ?>
                 </div>

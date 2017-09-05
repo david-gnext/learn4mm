@@ -53,12 +53,12 @@ class ContentController extends BaseController
     public function save(Request $request,$id) {
         if($id == "new") {
             DB::table("content")->insert(
-                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
+                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
             DB::table("content")->where("id",$id)->update(
-                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
+                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Updated Successfully"));
         }

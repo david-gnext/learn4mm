@@ -29,6 +29,10 @@
          <label class="w3-label">Answer</label>
          <input type="text" name="ans" class="w3-input">
      </div>
+    <div class="w3-group w3-margin">
+         <label class="w3-label">Hint</label>
+         <input type="text" name="hint" class="w3-input">
+     </div>
      <div class="w3-group w3-margin">
          <label class="w3-label w3-col s4">Choose Content Type</label>
          <select class="w3-select w3-hover-none w3-col s8" name="isRead">
