@@ -1,7 +1,7 @@
 <?php
 function display($subjects) {
     if (count($subjects) == 0) {
-        echo "<div class='w3-panel w3-yellow w3-leftbar w3-border-red'><p style='padding:2rem;'>ယခုဘာသာရပ္အားမတင္ရေသးပါ။မၾကာမီလာမည္။</p>" .
+        echo "<div class='w3-panel w3-yellow w3-leftbar w3-border-red'><p style='padding:2rem;'>ယခုဘာသာရပ္အားမတင္ရေသးပါ။မၾကာမီလာမည္။</p>" .                                                                                                                                                                                                                                                                                
         "</div><a href='' class='w3-btn w3-display-middle w3-indigo'>Home</a>";
     } else {
         echo '<div class="flex-center position-ref full-height w3-container main-content"><div class="w3-row">';
@@ -12,7 +12,7 @@ function display($subjects) {
                 <header class="w3-container <?= $subject->class ?>">
                     <h4><?= $subject->content_main ?>
                         <?php
-                        if($subject->audio !== ""){
+                        if($subject->audio !== "" && $subject->audio !== null){
                          ?>
                         <i class="fa fa-volume-up"><audio  autoplay>
                         <source src="http://api.voicerss.org/?key=22c870c268904e7e9c93ece4476188d1&hl=en-us&src=<?=$subject->content_main?>" type="audio/mp3">
@@ -23,7 +23,7 @@ function display($subjects) {
                     </h4>
                 </header>
 
-                <div class="w3-container">
+                <div class="w3-container content-block">
                     <p class="w3-padding"><?= $subject->content_mm ?></p>
                     <?php
                     if (FALSE == empty($subject->ans)) {
@@ -45,6 +45,9 @@ function display($subjects) {
 
                 <footer class="w3-container">
                     <?php
+                    if($subject->isFill == 2) {
+                        echo "<input type='hidden' id='speakTest'>";
+                    }
                     if (!$subjects->hasMorePages()) {
                         echo '<a class="sub-learn-btn w3-button ' . $subject->class . '" href="">ၿပီးပါၿပီ</a>';
                     } else {

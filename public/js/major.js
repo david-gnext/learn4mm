@@ -38,6 +38,31 @@
                 Major.content.get($(this).data("link"),this.id,$(this).data('type'));
             });
         },
+        speakTest:function() {
+            if($("#speakTest").length === 0) return;
+            var recognizing;
+            var recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.start();
+            recognizing = true;
+            var userVoice,target = $(".main-content header h4").text().toLowerCase().trim();
+            recognition.onresult = function (event) {
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+              if (event.results[i].isFinal) {
+                userVoice = event.results[i][0].transcript;
+              }
+            }
+            if($(".speak-result").length >= 3) {
+                $(".speak-result").remove();
+            }
+            if(userVoice.toLowerCase().trim() == target) {
+              $("<div class='w3-green w3-padding speak-result'>").text("သင္ေၿပတာမွန္ပါတယ္").appendTo(".main-content .content-block");
+            } else {
+              $("<div class='w3-red w3-padding speak-result'>").text("သင္ေၿပတာမွားပါတယ္").appendTo(".main-content .content-block");
+            }
+        }
+          recognition.onend = recognition.stop();
+        },
         clickSound:function() {
             $(document).on("click",".fa-volume-up",function() {
                 $(this).find("audio")[0].play();
@@ -116,6 +141,7 @@
                         Major.content.ans = $(html).find(".ques-ans span").eq(idx).text();
                     }
                     $(".main-content").html(html);
+                    Major.content.speakTest();
                     $("#hint").remove();$("#ans").remove();
                     if(type != null & $(".fa-volume-up").length) {
                                 //info for audio

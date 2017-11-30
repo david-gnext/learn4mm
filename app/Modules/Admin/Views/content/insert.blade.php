@@ -38,6 +38,7 @@
          <select class="w3-select w3-hover-none w3-col s8" name="isRead">
              <option value="1">Fill</option>
              <option value="0">No Fill</option>
+             <option value="2">Voice</option>
         </select>
       </div>
     <div class="w3-group w3-margin">
