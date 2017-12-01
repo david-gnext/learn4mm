@@ -26,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider
         // For each of the registered modules, include their routes and Views
         $modules = config("module.modules");
 
-        while (list(,$module) = each($modules)) {
+        foreach($modules as $module) {
 
             // Load the routes for each of the modules
             if(file_exists(__DIR__.'/'.$module.'/routes.php')) {
