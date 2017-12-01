@@ -38,7 +38,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    
+
     public function index() {
         if (Auth::check()) {
             // Authentication passed...
@@ -53,6 +53,7 @@ class LoginController extends Controller
     }
     //logging in
     public function login(Request $request) {
+        var_dump($request->email);exit;
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
              if(Auth::user()->role == 2) {
                  return redirect("/");exit;
