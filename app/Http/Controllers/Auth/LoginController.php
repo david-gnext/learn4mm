@@ -53,13 +53,13 @@ class LoginController extends Controller
     }
     //logging in
     public function login(Request $request) {
-        var_dump($request->email);exit;
+
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
              if(Auth::user()->role == 2) {
                  return redirect("/");exit;
              }
                 return redirect("/admin/dashboard");
-         } else {
+         } else {  var_dump(Auth::user());exit;
             return redirect("/signin")->with("message","Incorrect Password or username");exit;
          }
     }
