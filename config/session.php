@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'domain' => "learn4mm.herokuapp.com",
+    'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------

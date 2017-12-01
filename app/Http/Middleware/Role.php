@@ -19,11 +19,11 @@ class Role
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {   
+    {
         if(Auth::user()->role == self::ROLE_ADMIN) {
             return redirect('/admin/dashboard');
-        }        
+        }
         return $next($request);
     }
 }
-
+?>

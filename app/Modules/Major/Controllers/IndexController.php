@@ -20,11 +20,12 @@ class IndexController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */   
-   
-    
+    */
+
+
     public function index(Request $request) {
         $majors = DB::select('select m.id as mid,m.name as mname,m.description,m.color as class from major as m where m.deleted_flag = 0');
         return view('/welcome', ['majors' => $majors]);
     }
 }
+?>
