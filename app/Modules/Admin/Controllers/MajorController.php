@@ -20,7 +20,7 @@ class MajorController extends BaseController
     public function __construct() {
         $this->middleware("auth")->except("logout");
     }
-    
+
     public function index(Request $request) {
         $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
@@ -43,7 +43,7 @@ class MajorController extends BaseController
     public function save(Request $request,$id) {
         if($id == "new") {
             DB::table("major")->insert(
-                    ['name'=>$request->name,'description'=>$request->desc,'color'=>$request->cname]
+                    ['name'=>$request->name,'description'=>$request->desc,'color'=>$request->cname,'created_time',now()]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
@@ -54,6 +54,3 @@ class MajorController extends BaseController
         }
     }
 }
-
-
-
