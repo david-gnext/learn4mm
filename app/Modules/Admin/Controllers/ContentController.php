@@ -21,7 +21,6 @@ class ContentController extends BaseController
     }
 
     public function index(Request $request) {
-        $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
         return view("Admin::content/index",["dbstatus"=>$data]);
     }
