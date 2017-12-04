@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Modules\ModulesServiceProvider::class,
         App\Modules\RouteServiceProvider::class,
+        # other providers omitted
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
     ],
 
     /*
