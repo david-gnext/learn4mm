@@ -43,7 +43,7 @@ class MajorController extends BaseController
     public function save(Request $request,$id) {
         if($id == "new") {
             DB::table("major")->insert(
-                    ['name'=>$request->name,'description'=>$request->desc,'color'=>$request->cname,'created_time',now()]
+                    ['name'=>$request->name,'description'=>$request->desc,'color'=>$request->cname,'created_time'=>DB::raw('CURDATE()')]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
