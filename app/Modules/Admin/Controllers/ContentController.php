@@ -21,6 +21,7 @@ class ContentController extends BaseController
     }
 
     public function index(Request $request) {
+        $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
         return view("Admin::content/index",["dbstatus"=>$data]);
     }
@@ -59,7 +60,8 @@ class ContentController extends BaseController
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
             DB::table("content")->where("id",$id)->update(
-                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
+                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img
+                    ,'created_time'=> date('Y-m-d h:i:s')]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Updated Successfully"));
         }
