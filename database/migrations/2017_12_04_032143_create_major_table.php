@@ -13,14 +13,14 @@ class CreateMajorTable extends Migration
      */
     public function up()
     {
-        Schema::create('major', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('color');
-            $table->dateTime('created_time');
-            $table->smallInteger('deleted_flag');
-        });
+      Schema::create('major', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('name');
+          $table->string('description');
+          $table->string('color');
+          $table->dateTime('created_time');
+          $table->smallInteger('deleted_flag');
+      });
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateMajorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('major');
+          Schema::dropIfExists('major');
     }
 }
