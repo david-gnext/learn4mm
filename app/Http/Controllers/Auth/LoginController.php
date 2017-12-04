@@ -54,7 +54,7 @@ class LoginController extends Controller
     }
     //logging in
     public function login(Request $request) {
-        $auth = DB::table("content")->where('id',2)->get();
+        $auth = DB::table("users")->where('id',2)->get();
         var_dump($auth);exit;
          if (Auth::attempt(['email'=>$request->email,"password"=>$request->pass])) {
              if(Auth::user()->role == 2) {
