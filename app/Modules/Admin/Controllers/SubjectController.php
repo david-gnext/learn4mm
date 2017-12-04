@@ -19,7 +19,7 @@ class SubjectController extends BaseController
     public function __construct() {
         $this->middleware("auth")->except("logout");
     }
-    
+
     public function index() {
         $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
@@ -48,7 +48,8 @@ class SubjectController extends BaseController
     public function save(Request $request,$id) {
         if($id == "new") {
             DB::table("subject")->insert(
-                    ['name'=>$request->name,'description'=>$request->desc,'isRead'=>$request->isRead,'majorid'=>$request->majorId,'created_time'=>date("Y-m-d H:i:s")]
+                    ['name'=>$request->name,'description'=>$request->desc,'isRead'=>$request->isRead,'majorid'=>$request->majorId,'created_time'=>date("Y-m-d H:i:s")
+                    ,'deleted_flag'=>0]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
@@ -59,4 +60,3 @@ class SubjectController extends BaseController
         }
     }
 }
-

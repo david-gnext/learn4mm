@@ -19,7 +19,7 @@ class ContentController extends BaseController
     public function __construct() {
         $this->middleware("auth")->except("logout");
     }
-    
+
     public function index(Request $request) {
         $data = $this->getDBInfo();
         $data["major"]["data"] = DB::table("major")->where("deleted_flag",0)->paginate(10);
@@ -31,7 +31,7 @@ class ContentController extends BaseController
         } else {
             $data = DB::table("content")->where("subjectid",$id)->where("deleted_flag",0)->paginate(10);
         }
-        
+
         return view("Admin::content/get",["subject"=>$data,"link"=>$request->link,"subjectid"=>$id]);
     }
     public function insert($id) {
@@ -53,7 +53,8 @@ class ContentController extends BaseController
     public function save(Request $request,$id) {
         if($id == "new") {
             DB::table("content")->insert(
-                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s")]
+                    ['subjectid'=>$request->subjectId,'content_main'=>$request->name,'content_mm'=>$request->mm,'q1'=>$request->q1,'q2'=>$request->q2,'q3'=>$request->q3,'ans'=>$request->ans,'hint'=>$request->hint,'isFill'=>$request->isRead,'audio'=>$request->audio,'img'=>$request->img,'created_time'=>date("Y-m-d h:i:s"),
+                    ,'deleted_flag'=>0]
                     );
             echo json_encode(array("code"=>200,"msg"=>"Created Successfully"));
         } else {
@@ -64,5 +65,3 @@ class ContentController extends BaseController
         }
     }
 }
-
-
