@@ -3,7 +3,7 @@
 <script src="{{URL::asset('js/base.js')}}"></script>
 <script src="{{URL::asset('js/major.js')}}"></script>
 @endsection
-@section('title', 'Page Title')
+@section('title', 'Created By David Jor Hpan (ေဒးဗစ္ေဂ်ာ္ဖန္)')
 
 @section('sidebar')
 @parent

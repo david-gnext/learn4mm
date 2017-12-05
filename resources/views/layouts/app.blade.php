@@ -13,7 +13,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="{{URL::asset('/js/jquery.js')}}" type="text/javascript" ></script>
         @yield("external")
-        <title>App Name - @yield('title')</title>
+        <title>Best Myanmar Learning Site - @yield('title')</title>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
