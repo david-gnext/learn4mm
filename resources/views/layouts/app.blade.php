@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+        <meta name="description" content="free myanmar learning site">
+        <meta name="keywords" content="learning in myanmar,programming,language"> 
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/font-awesome.css')}}" >
@@ -12,12 +14,12 @@
         <script src="{{URL::asset('/js/jquery.js')}}" type="text/javascript" ></script>
         @yield("external")
         <title>App Name - @yield('title')</title>
-           
+
     </head>
-    
+
     <body>
         @section("header")
-        
+
          <div class="w3-bar w3-border w3-indigo header w3-row w3-card-4 w3-small">
           <a href="#" class="w3-bar-item w3-bar-logo"></a>
           <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green w3-hide-small">About</a>
@@ -35,7 +37,7 @@
                     </div>
             @endif
         </div>
-        
+
         @section('sidebar')
 
         @show
@@ -44,4 +46,4 @@
             @yield('content')
         </div>
     </body>
-</html>   
+</html>
