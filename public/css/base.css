@@ -7,10 +7,13 @@ and open the template in the editor.
     Created on : Jul 21, 2017, 4:24:08 PM
     Author     : David JP<david.gnext@gmail.com>
 */
-*,h1,h2,h3,h4,h5,h6 {
+* {
     margin:0;
     padding:0;
     font-family: "Zawgyi-one",sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+   font-family: "Zawgyi-one",sans-serif;
 }
 /*header*/
 .header.w3-bar .w3-button{
