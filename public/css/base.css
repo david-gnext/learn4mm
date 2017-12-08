@@ -12,7 +12,7 @@ and open the template in the editor.
     padding:0;
     font-family: "Zawgyi-one",sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,code, kbd, pre, samp {
    font-family: "Zawgyi-one",sans-serif;
 }
 /*header*/
