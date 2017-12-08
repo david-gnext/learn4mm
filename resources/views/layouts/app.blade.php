@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content='width=device-width, initial-scale=1.0' name='viewport'>
         <meta name="description" content="free myanmar learning site">
-        <meta name="keywords" content="learning in myanmar,programming,language"> 
-        <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
+        <meta name="keywords" content="learning in myanmar,programming,language">
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/w3.css')}}" >
+        <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/base.css')}}" >
         <link rel="stylesheet"  type="text/css"  href="{{URL::asset('/css/font-awesome.css')}}" >
         <link href="../img/logo.png" rel="icon"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
