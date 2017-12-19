@@ -71,6 +71,9 @@ class RegisterController extends Controller
             'password_confirmation' => bcrypt($data['password_confirmation']),
         ]);
     }
+    /**
+    * Register user and to event
+    */
     public function register(Request $request)
     {
         // Here the request is validated. The validator method is located
